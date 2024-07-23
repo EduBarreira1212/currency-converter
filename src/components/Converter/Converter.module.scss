@@ -1,3 +1,37 @@
 .main{
-    color: red;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5vh;
+    border: solid;
+    border-radius: 1vw;
+    padding: 3vh 3vw;
+    input{
+        padding: 0.75vh 0.75vw;
+        border-radius: 0.5vw;
+        background: none;
+        border: solid white 0.1vw;
+    }
+    button{
+        padding: 0.75vh 0.75vw;
+        border-radius: 0.5vw;
+        border: none;
+        background-color: white;
+        cursor: pointer;
+    }
+    .section{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        select{
+            padding: 0.75vh 0.75vw;
+            border-radius: 0.5vw;
+            background: none;
+            border: solid white 0.1vw;
+        }
+        div{
+            flex-direction: column;
+        }
+    }
 }
