@@ -21,6 +21,7 @@
         border-radius: 0.5vw;
         border: none;
         background-color: white;
+        margin-top: 2vh;
         cursor: pointer;
     }
     .section{
@@ -38,5 +39,11 @@
             display: flex;
             flex-direction: column;
         }
+    }
+    span{
+        padding: 0.90vh 0.90vw;
+        border-radius: 0.5vw;
+        border: solid 0.05vw;
+        margin-top: 2vh;
     }
 }
