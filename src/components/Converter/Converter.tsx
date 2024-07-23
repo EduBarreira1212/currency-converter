@@ -1,3 +1,4 @@
+import currencyCodes from "../../shared/currencyCodes";
 import styles from "../Converter/Converter.module.scss";
 
 const Converter = () => {
@@ -10,14 +11,18 @@ const Converter = () => {
         <div>
           <label htmlFor="from-select">From</label>
           <select id="from-select">
-
+            {currencyCodes.map((code, index) => (
+              <option key={index} value={code}>{code}</option>
+            ))}
           </select>
         </div>
         <button>Switch</button>
         <div>
           <label htmlFor="to-input">To</label>
           <select id="to-input">
-
+            {currencyCodes.map((code, index) => (
+              <option key={index} value={code}>{code}</option>
+            ))}
           </select>
         </div>
       </section>
