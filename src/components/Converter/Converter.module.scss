@@ -14,7 +14,7 @@
         padding: 0.75vh 0.75vw;
         border-radius: 0.5vw;
         background: none;
-        border: solid white 0.1vw;
+        border: solid 0.1vw rgba(255, 255, 255, 0.5);
     }
     label{
         align-self: flex-start;
@@ -37,7 +37,7 @@
             padding: 0.75vh 0.75vw;
             border-radius: 0.5vw;
             background: none;
-            border: solid white 0.1vw;
+            border: solid 0.1vw rgba(255, 255, 255, 0.5);
         }
         option{
             color: black;
