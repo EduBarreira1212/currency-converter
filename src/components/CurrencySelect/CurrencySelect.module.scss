@@ -1,0 +1,21 @@
+.selectSection{
+    display: flex;
+    flex-direction: column;
+    div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border: solid 0.1vw rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.10);
+        border-radius: 0.5vw;
+        padding: 0.5vh 0.5vw;
+        select{
+            border: none;
+            background: none;
+        }
+        img{
+            height: 2rem;
+            width: 1.5rem;
+        }
+    }
+}
