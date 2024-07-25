@@ -2,9 +2,9 @@ import currencyCodes from "../../shared/currencyCodes";
 import styles from "../CurrencySelect/CurrencySelect.module.scss";
 
 interface ICurrencyProps {
-    label: string,
-    selectedCurrency: string,
-    handleCurrency: (e: any) => void,
+  label: string,
+  selectedCurrency: string,
+  handleCurrency: (e: any) => void,
 }
 
 
