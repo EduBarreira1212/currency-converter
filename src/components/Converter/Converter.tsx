@@ -1,5 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "../Converter/Converter.module.scss";
 import CurrencySelect from "../CurrencySelect/CurrencySelect";
+import { faRightLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Converter = () => {
   return (
@@ -9,7 +11,7 @@ const Converter = () => {
       <input id="amount-input" type="number" />
       <section className={styles.section}>
         <CurrencySelect label="From"/>
-        <button>Switch</button>
+        <button><FontAwesomeIcon icon={faRightLeft}/></button>
         <CurrencySelect label="To"/>
       </section>
       <button>Get exchange rate</button>
