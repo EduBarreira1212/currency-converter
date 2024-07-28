@@ -35,7 +35,7 @@ const Converter = () => {
         <CurrencySelect label="To" selectedCurrency={ToCurrency} handleCurrency={(e) => setToCurrency(e.target.value)}/>
       </section>
       <button onClick={handleExchangeRateClick}>Get exchange rate</button>
-      <span>{`${amount}`}</span>
+      <span>{amount ? `${amountRef.current?.value} ${FromCurrency} = ${amount?.toFixed(2)} ${ToCurrency}` : `0 ${FromCurrency} = 0 ${ToCurrency}`}</span>
     </main>
   )
 };
