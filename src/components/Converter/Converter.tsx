@@ -15,8 +15,6 @@ const Converter = () => {
   const handleClick = async () => {
     setFromCurrency(ToCurrency);
     setToCurrency(fromCurrency);
-    console.log(fromCurrency);
-    console.log(ToCurrency);
     const currency = await getCurrency(ToCurrency, fromCurrency, Number(amountRef.current?.value));
     if(currency){
       setAmount(currency);
