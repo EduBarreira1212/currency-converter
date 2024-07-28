@@ -34,9 +34,9 @@ const Converter = () => {
       <label htmlFor="amount-input">Enter amount</label>
       <input ref={amountRef} id="amount-input" type="number" />
       <section className={styles.section}>
-        <CurrencySelect label="From" selectedCurrency={fromCurrency} handleCurrency={(e) => setFromCurrency(e.target.value)}/>
+        <CurrencySelect label="From" selectedCurrency={fromCurrency} handleCurrency={(e) => {setFromCurrency(e.target.value); setAmount(0)}}/>
         <button onClick={handleClick}><FontAwesomeIcon icon={faRightLeft}/></button>
-        <CurrencySelect label="To" selectedCurrency={ToCurrency} handleCurrency={(e) => setToCurrency(e.target.value)}/>
+        <CurrencySelect label="To" selectedCurrency={ToCurrency} handleCurrency={(e) => {setToCurrency(e.target.value); setAmount(0)}}/>
       </section>
       <button onClick={handleExchangeRateClick}>Get exchange rate</button>
       <span>{amount ? `${amountRef.current?.value} ${fromCurrency} = ${amount?.toFixed(2)} ${ToCurrency}` : `0 ${fromCurrency} = 0 ${ToCurrency}`}</span>
