@@ -6,7 +6,7 @@ import { useRef, useState } from "react";
 import { getCurrency } from "../../services/getCurrency";
 
 const Converter = () => {
-  const [FromCurrency, setFromCurrency] = useState("USD");
+  const [fromCurrency, setFromCurrency] = useState("USD");
   const [ToCurrency, setToCurrency] = useState("BRL");
   const [amount, setAmount] = useState<number>();
 
@@ -14,11 +14,11 @@ const Converter = () => {
 
   const handleClick = () => {
     setFromCurrency(ToCurrency);
-    setToCurrency(FromCurrency);
+    setToCurrency(fromCurrency);
   }
 
   const handleExchangeRateClick = async () => {
-    const currency = await getCurrency(FromCurrency, ToCurrency, Number(amountRef.current?.value));
+    const currency = await getCurrency(fromCurrency, ToCurrency, Number(amountRef.current?.value));
     if(currency){
       setAmount(currency);
     }
@@ -30,12 +30,12 @@ const Converter = () => {
       <label htmlFor="amount-input">Enter amount</label>
       <input ref={amountRef} id="amount-input" type="number" />
       <section className={styles.section}>
-        <CurrencySelect label="From" selectedCurrency={FromCurrency} handleCurrency={(e) => setFromCurrency(e.target.value)}/>
+        <CurrencySelect label="From" selectedCurrency={fromCurrency} handleCurrency={(e) => setFromCurrency(e.target.value)}/>
         <button onClick={handleClick}><FontAwesomeIcon icon={faRightLeft}/></button>
         <CurrencySelect label="To" selectedCurrency={ToCurrency} handleCurrency={(e) => setToCurrency(e.target.value)}/>
       </section>
       <button onClick={handleExchangeRateClick}>Get exchange rate</button>
-      <span>{amount ? `${amountRef.current?.value} ${FromCurrency} = ${amount?.toFixed(2)} ${ToCurrency}` : `0 ${FromCurrency} = 0 ${ToCurrency}`}</span>
+      <span>{amount ? `${amountRef.current?.value} ${fromCurrency} = ${amount?.toFixed(2)} ${ToCurrency}` : `0 ${fromCurrency} = 0 ${ToCurrency}`}</span>
     </main>
   )
 };
