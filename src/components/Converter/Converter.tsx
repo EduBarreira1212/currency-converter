@@ -12,9 +12,15 @@ const Converter = () => {
 
   const amountRef = useRef<HTMLInputElement | null>(null);
 
-  const handleClick = () => {
+  const handleClick = async () => {
     setFromCurrency(ToCurrency);
     setToCurrency(fromCurrency);
+    console.log(fromCurrency);
+    console.log(ToCurrency);
+    const currency = await getCurrency(ToCurrency, fromCurrency, Number(amountRef.current?.value));
+    if(currency){
+      setAmount(currency);
+    }
   }
 
   const handleExchangeRateClick = async () => {
