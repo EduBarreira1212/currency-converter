@@ -41,8 +41,8 @@ To create the API key you have to sign up in this link: https://www.exchangerate
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/EduBarreira1212/weather-app.git
-    cd weather-app
+    git clone https://github.com/EduBarreira1212/currency-converter.git
+    cd currency-converter
     ```
 
 2. Install the dependencies:
