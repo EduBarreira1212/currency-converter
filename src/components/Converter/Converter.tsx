@@ -12,20 +12,17 @@ const Converter = () => {
 
   const amountRef = useRef<HTMLInputElement | null>(null);
 
-  const handleClick = async () => {
-    setFromCurrency(ToCurrency);
-    setToCurrency(fromCurrency);
-    const currency = await getCurrency(ToCurrency, fromCurrency, Number(amountRef.current?.value));
+  const handleCurrencyConversion = async (from: string, to: string) => {
+    const currency = await getCurrency(from, to, Number(amountRef.current?.value));
     if(currency){
       setAmount(currency);
     }
   }
 
-  const handleExchangeRateClick = async () => {
-    const currency = await getCurrency(fromCurrency, ToCurrency, Number(amountRef.current?.value));
-    if(currency){
-      setAmount(currency);
-    }
+  const handleClick = async () => {
+    setFromCurrency(ToCurrency);
+    setToCurrency(fromCurrency);
+    handleCurrencyConversion(ToCurrency, fromCurrency);
   }
 
   return (
@@ -38,7 +35,7 @@ const Converter = () => {
         <button onClick={handleClick}><FontAwesomeIcon icon={faRightLeft} color="black"/></button>
         <CurrencySelect label="To" selectedCurrency={ToCurrency} handleCurrency={(e) => {setToCurrency(e.target.value); setAmount(0)}}/>
       </section>
-      <button onClick={handleExchangeRateClick}>Get exchange rate</button>
+      <button onClick={e => handleCurrencyConversion(fromCurrency, ToCurrency)}>Get exchange rate</button>
       <span>{amount ? `${amountRef.current?.value} ${fromCurrency} = ${amount?.toFixed(2)} ${ToCurrency}` : `0 ${fromCurrency} = 0 ${ToCurrency}`}</span>
     </main>
   )
