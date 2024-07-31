@@ -14,14 +14,19 @@ interface IgetCurrencyResponse {
     conversion_result: number
 }
 
-const apiKey = process.env.REACT_APP_API_KEY;
+const apiConfig = {
+    baseUrl: 'https://v6.exchangerate-api.com/v6/',
+    apiKey: process.env.REACT_APP_API_KEY
+};
 
-export const getCurrency = async (fromCurrency: string, toCurrency: string, amount: number) => {
+export const getCurrency = async (fromCurrency: string, toCurrency: string, amount: number): Promise<number | null> => {
+    const url = `${apiConfig.baseUrl}${apiConfig.apiKey}/pair/${fromCurrency}/${toCurrency}/${amount}`
     try {
-        const response = await axios.get<IgetCurrencyResponse>(`https://v6.exchangerate-api.com/v6/${apiKey}/pair/${fromCurrency}/${toCurrency}/${amount}`);
+        const response = await axios.get<IgetCurrencyResponse>(url);
 
         return response.data.conversion_result;
     } catch (error) {
-        console.log("Error fetching data:", error);
+        console.error("Error fetching data:", error);
+        return null;
     }
 };
